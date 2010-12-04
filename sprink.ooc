@@ -17,7 +17,7 @@ main: func {
     )
 
     bot on("001", |irc, msg|
-        irc join("#programming,#offtopic,#bots")
+        irc join("#programming,#offtopic,#bots,#minecraft")
     )
 
     bot on("PRIVMSG", |irc, msg|
