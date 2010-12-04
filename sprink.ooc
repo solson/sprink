@@ -32,8 +32,6 @@ main: func {
         channel := msg params[0]
         if(msg params[1] startsWith?(irc nickname)) {
             words := msg params[1] split(' ', 3)
-            words size toString() println()
-            words each(|word| word print(); ": " print(); word size toString() println())
             first := words[1]
             match first {
                 case "!channels" =>
