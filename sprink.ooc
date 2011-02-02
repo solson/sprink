@@ -79,7 +79,7 @@ frinkUrl: func (code: String) -> String {
 }
 
 frinkEval: func (code: String) -> String {
-    code = "B := byte; " + code
+    code = "B := byte; b := bit;" + code
     url := frinkUrl(code)
     request := HTTPRequest new(url) .perform()
     doc := HtmlDoc new(request getString(), "frink.fsp")
