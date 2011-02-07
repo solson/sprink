@@ -4,8 +4,13 @@ import curl/[Curl, Highlevel]
 import xml/[Xml, XPath]
 import structs/[List, ArrayList], text/StringTokenizer
 
-main: func {
-    bot := IRC new("sprink", "sprink", "a spry little IRC bot", "localhost", 6667)
+main: func (args: ArrayList<String>) {
+    if(args size != 4) {
+        "usage: sprink <nick> <server> <port>" println()
+        return -1
+    }
+
+    bot := IRC new(args[1], "sprink", "a spry little IRC bot", args[2], args[3] toInt())
 
     bot on("send", |irc, msg|
         ">> " print()
